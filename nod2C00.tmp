@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://cirdedl02db1c"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_07vg4"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_24kyw"]
+[ext_resource type="Texture2D" uid="uid://bwilvnwq087b5" path="res://BackGround/testBackground.png" id="1_x6p86"]
+[ext_resource type="Script" path="res://CameraMoving.gd" id="2_rbc3e"]
+[ext_resource type="Script" path="res://Button.gd" id="5_beu3u"]
+[ext_resource type="Script" path="res://STR.gd" id="6_3cqxl"]
+[ext_resource type="Script" path="res://UI.gd" id="6_22wn1"]
+[ext_resource type="Script" path="res://INT.gd" id="7_efqe1"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_07vg4")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1567, 328)
+script = ExtResource("1_24kyw")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 654
+script = ExtResource("2_rbc3e")
+
+[node name="TestBackground" type="Sprite2D" parent="."]
+position = Vector2(1499.22, 325.5)
+scale = Vector2(0.707609, 0.707609)
+texture = ExtResource("1_x6p86")
+
+[node name="ButtSTR" type="Button" parent="."]
+offset_left = 1405.0
+offset_top = 313.0
+offset_right = 1569.0
+offset_bottom = 397.0
+text = "Увеличить силу"
+script = ExtResource("5_beu3u")
+
+[node name="ButtINT" type="Button" parent="."]
+offset_left = 1657.0
+offset_top = 324.0
+offset_right = 1821.0
+offset_bottom = 408.0
+text = "Увеличить Интеллект"
+script = ExtResource("5_beu3u")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_22wn1")
+
+[node name="STR" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1265.0
+offset_top = 71.0
+offset_right = 1441.0
+offset_bottom = 182.0
+text = "Сила:
+Ум:"
+script = ExtResource("6_3cqxl")
+
+[node name="INT" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1269.0
+offset_top = 134.0
+offset_right = 1445.0
+offset_bottom = 245.0
+text = "Интеллект:"
+script = ExtResource("7_efqe1")
+
+[connection signal="pressed" from="ButtSTR" to="." method="_on_butt_str_pressed"]
+[connection signal="pressed" from="ButtSTR" to="UI" method="_on_butt_str_pressed"]
+[connection signal="pressed" from="ButtSTR" to="UI/STR" method="_on_butt_str_pressed"]
+[connection signal="pressed" from="ButtINT" to="." method="_on_butt_int_pressed"]
+[connection signal="pressed" from="ButtINT" to="UI/INT" method="_on_butt_int_pressed"]

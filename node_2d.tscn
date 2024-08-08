@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://cirdedl02db1c"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_07vg4"]
+[ext_resource type="Script" path="res://STR.gd" id="6_3cqxl"]
+[ext_resource type="Script" path="res://FRN.gd" id="6_fanbc"]
+[ext_resource type="Script" path="res://MON2.gd" id="6_hlx3s"]
+[ext_resource type="Script" path="res://MOOD.gd" id="7_uwycg"]
+[ext_resource type="Script" path="res://MON.gd" id="8_xcqhg"]
+
+[sub_resource type="GDScript" id="GDScript_jy7kf"]
+script/source = "extends Label
+
+var score = 0	
+
+
+func _process(delta):
+	var test = get_node(\"/root/GAME\")
+	score = test.INT
+	text = \"Интеллект: %s\" % score
+"
+
+[node name="GAME" type="Node2D"]
+script = ExtResource("1_07vg4")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="STR" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 45.0
+offset_right = 257.0
+offset_bottom = 156.0
+text = "Сила:"
+script = ExtResource("6_3cqxl")
+
+[node name="INT" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 70.0
+offset_right = 260.0
+offset_bottom = 181.0
+text = "Интеллект:"
+script = SubResource("GDScript_jy7kf")
+
+[node name="FRN" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 97.0
+offset_right = 260.0
+offset_bottom = 208.0
+text = "Интеллект:"
+script = ExtResource("6_fanbc")
+
+[node name="MOOD" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 126.0
+offset_right = 260.0
+offset_bottom = 237.0
+text = "Интеллект:"
+script = ExtResource("7_uwycg")
+
+[node name="MON" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 150.0
+offset_right = 260.0
+offset_bottom = 261.0
+text = "Интеллект:"
+script = ExtResource("8_xcqhg")
+
+[node name="DAY" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 180.0
+offset_right = 257.0
+offset_bottom = 291.0
+text = "Интеллект:"
+script = ExtResource("6_hlx3s")
+
+[node name="Read" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 263.0
+offset_right = 225.0
+offset_bottom = 354.0
+text = "Читать книги"
+
+[node name="Work" type="Button" parent="."]
+offset_left = 342.0
+offset_top = 263.0
+offset_right = 513.0
+offset_bottom = 354.0
+text = "Работать на заводе"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 630.0
+offset_top = 263.0
+offset_right = 801.0
+offset_bottom = 354.0
+text = "Играть в мяч"
+
+[connection signal="pressed" from="Read" to="." method="_on_read_pressed"]
+[connection signal="pressed" from="Work" to="." method="_on_work_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

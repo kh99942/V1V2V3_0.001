@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://c50dse4egqc23"]
+
+[ext_resource type="Script" path="res://end.gd" id="1_t0hr8"]
+[ext_resource type="Script" path="res://STR1.gd" id="2_uf1j7"]
+
+[node name="END" type="Node2D"]
+script = ExtResource("1_t0hr8")
+
+[node name="StartB" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 343.0
+offset_right = 630.0
+offset_bottom = 399.0
+text = "Начать заново"
+metadata/_edit_use_anchors_ = true
+
+[node name="STR" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 45.0
+offset_right = 257.0
+offset_bottom = 156.0
+text = "Сила:"
+script = ExtResource("2_uf1j7")
+
+[node name="INT" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 70.0
+offset_right = 260.0
+offset_bottom = 181.0
+text = "Интеллект:"
+
+[node name="FRN" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 97.0
+offset_right = 260.0
+offset_bottom = 208.0
+text = "Интеллект:"
+
+[node name="MOOD" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 126.0
+offset_right = 260.0
+offset_bottom = 237.0
+text = "Потому что у меня не получилось получить значение"
+
+[node name="MON" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 150.0
+offset_right = 260.0
+offset_bottom = 261.0
+text = "Переменных из прошлой сцены"
+
+[connection signal="pressed" from="StartB" to="." method="_on_start_b_pressed"]

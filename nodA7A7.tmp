@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cirdedl02db1c"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_07vg4"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_24kyw"]
+[ext_resource type="Texture2D" uid="uid://bwilvnwq087b5" path="res://BackGround/testBackground.png" id="1_x6p86"]
+[ext_resource type="Script" path="res://CameraMoving.gd" id="2_rbc3e"]
+[ext_resource type="Script" path="res://Button.gd" id="5_beu3u"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_07vg4")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1567, 328)
+script = ExtResource("1_24kyw")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 654
+script = ExtResource("2_rbc3e")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TestBackground" type="Sprite2D" parent="."]
+position = Vector2(1499.22, 325.5)
+scale = Vector2(0.707609, 0.707609)
+texture = ExtResource("1_x6p86")
+
+[node name="ButtSTR" type="Button" parent="."]
+offset_left = 1405.0
+offset_top = 313.0
+offset_right = 1569.0
+offset_bottom = 397.0
+text = "Увеличить силу"
+script = ExtResource("5_beu3u")
+
+[connection signal="toggled" from="ButtSTR" to="." method="_on_butt_str_toggled"]
+[connection signal="toggled" from="ButtSTR" to="ButtSTR" method="_on_toggled"]

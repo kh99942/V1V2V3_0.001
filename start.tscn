@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7qveu4bheon"]
+
+[ext_resource type="Script" path="res://start.gd" id="1_fhlx0"]
+
+[node name="START" type="Node2D"]
+script = ExtResource("1_fhlx0")
+
+[node name="StartB" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 343.0
+offset_right = 630.0
+offset_bottom = 399.0
+text = "Начать"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 302.0
+offset_top = 161.0
+offset_right = 840.0
+offset_bottom = 288.0
+pivot_offset = Vector2(759, 118)
+text = "В данной игре вам предоставлено 10 дней, в каждый из которых
+ вы можете заниматься только одним занятием
+
+Проживите эти 10 дней, чтобы узнать кем вы станете
+ "
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartB" to="." method="_on_start_b_pressed"]

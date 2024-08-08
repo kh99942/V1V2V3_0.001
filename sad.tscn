@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://r3fcrxkjy170"]
+
+[ext_resource type="Script" path="res://sad.gd" id="1_2bmlq"]
+
+[node name="Sad" type="Node2D"]
+script = ExtResource("1_2bmlq")
+
+[node name="StartB" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 343.0
+offset_right = 630.0
+offset_bottom = 399.0
+text = "Начать заново"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 302.0
+offset_top = 161.0
+offset_right = 840.0
+offset_bottom = 288.0
+pivot_offset = Vector2(759, 118)
+text = "Упс, ваше настроение упало ниже нуля и вы больше ничего не можете"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartB" to="." method="_on_start_b_pressed"]
